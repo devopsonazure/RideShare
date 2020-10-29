@@ -8,6 +8,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 
 namespace ServerlessMicroservices.FunctionApp.Orchestrators
 {
@@ -16,7 +17,7 @@ namespace ServerlessMicroservices.FunctionApp.Orchestrators
     {
         [FunctionName("O_ManageTrip")]
         public static async Task<object> ManageTrip(
-            [OrchestrationTrigger] DurableOrchestrationContext context,
+            [OrchestrationTrigger] IDurableOrchestrationContext context,
             ILogger log)
         {
             TripItem trip = context.GetInput<TripItem>();

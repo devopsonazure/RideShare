@@ -7,6 +7,8 @@ using System;
 using System.Collections.Generic;
 using System.Threading;
 using System.Threading.Tasks;
+using Microsoft.Azure.WebJobs.Extensions.DurableTask;
+
 
 namespace ServerlessMicroservices.FunctionApp.Orchestrators
 {
@@ -15,7 +17,7 @@ namespace ServerlessMicroservices.FunctionApp.Orchestrators
     {
         [FunctionName("O_MonitorTrip")]
         public static async Task<object> MonitorTrip(
-            [OrchestrationTrigger] DurableOrchestrationContext context,
+            [OrchestrationTrigger] IDurableOrchestrationContext context,
             ILogger log)
         {
             string code = context.GetInput<string>();
