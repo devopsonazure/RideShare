@@ -12,7 +12,7 @@ using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 
 namespace ServerlessMicroservices.FunctionApp.Orchestrators
 {
-    [StorageAccount("AzureWebJobsStorage")]
+    [StorageAccount("TripStorage")]
     public static class TripManagerOrchestrator
     {
         [FunctionName("O_ManageTrip")]
@@ -170,7 +170,7 @@ namespace ServerlessMicroservices.FunctionApp.Orchestrators
         // Out does does not work in Async methods!!!
         [FunctionName("A_TM_CreateTripMonitor")]
         public static void CreateTripMonitor([ActivityTrigger] TripItem trip,
-            [Queue("%TripMonitorsQueue%", Connection = "AzureWebJobsStorage")] out string queueTripCode,
+            [Queue("%TripMonitorsQueue%", Connection = "TripStorage")] out string queueTripCode,
             ILogger log)
         {
             log.LogInformation($"CreateTripMonitor starting....");

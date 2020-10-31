@@ -12,7 +12,6 @@ namespace ServerlessMicroservices.Shared.Services
         private const string EnableAuthKey = "EnableAuth";
 
         // Storage
-        // private const string StorageAccountKey = "AzureWebJobsStorage";
         private const string StorageAccountKey = "TripStorage";
         private const string TripManagersQueueKey = "TripManagersQueue";
         private const string TripMonitorsQueueKey = "TripMonitorsQueue";

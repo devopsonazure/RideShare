@@ -18,7 +18,7 @@ namespace ServerlessMicroservices.FunctionApp.Orchestrators
         [FunctionName("T_StartTripManagerViaQueueTrigger")]
         public static async Task StartTripManagerViaQueueTrigger(
             [DurableClient] IDurableOrchestrationClient context,
-            [QueueTrigger("%TripManagersQueue%", Connection = "AzureWebJobsStorage")] TripItem trip,
+            [QueueTrigger("%TripManagersQueue%", Connection = "TripStorage")] TripItem trip,
             ILogger log)
         {
             try
@@ -127,7 +127,7 @@ namespace ServerlessMicroservices.FunctionApp.Orchestrators
         [FunctionName("T_AcknowledgeTripViaQueueTrigger")]
         public static async Task AcknowledgeTripViaQueueTrigger(
             [DurableClient] IDurableOrchestrationClient context,
-            [QueueTrigger("%TripDriversQueue%", Connection = "AzureWebJobsStorage")] TripDriver info,
+            [QueueTrigger("%TripDriversQueue%", Connection = "TripStorage")] TripDriver info,
             ILogger log)
         {
             try

@@ -9,7 +9,7 @@ using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 
 namespace ServerlessMicroservices.FunctionApp.Orchestrators
 {
-    [StorageAccount("AzureWebJobsStorage")]
+    [StorageAccount("TripStorage")]
     public static class TripDemoOrchestrator
     {
         private static Random _rnd = new Random();
@@ -134,7 +134,7 @@ namespace ServerlessMicroservices.FunctionApp.Orchestrators
         // Out does does not work in Async methods!!!
         [FunctionName("A_TD_AssignDriver")]
         public static void AssignDriver([ActivityTrigger] TripItem trip,
-            [Queue("trip-drivers", Connection = "AzureWebJobsStorage")] out TripDriver queueInfo,
+            [Queue("trip-drivers", Connection = "TripStorage")] out TripDriver queueInfo,
             ILogger log)
         {
             log.LogInformation($"AssignDriver for {trip.Code} starting....");

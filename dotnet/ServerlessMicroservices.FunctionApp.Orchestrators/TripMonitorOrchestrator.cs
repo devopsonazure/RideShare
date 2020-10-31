@@ -12,7 +12,7 @@ using Microsoft.Azure.WebJobs.Extensions.DurableTask;
 
 namespace ServerlessMicroservices.FunctionApp.Orchestrators
 {
-    [StorageAccount("AzureWebJobsStorage")]
+    [StorageAccount("TripStorage")]
     public static class TripMonitorOrchestrator
     {
         [FunctionName("O_MonitorTrip")]

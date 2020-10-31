@@ -18,7 +18,7 @@ namespace ServerlessMicroservices.FunctionApp.Orchestrators
         [FunctionName("T_StartTripDemoViaQueueTrigger")]
         public static async Task StartTripDemoViaQueueTrigger(
             [DurableClient] IDurableOrchestrationClient context,
-            [QueueTrigger("%TripDemosQueue%", Connection = "AzureWebJobsStorage")] TripDemoState demoState,
+            [QueueTrigger("%TripDemosQueue%", Connection = "TripStorage")] TripDemoState demoState,
             ILogger log)
         {
             try

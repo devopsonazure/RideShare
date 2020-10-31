@@ -280,7 +280,7 @@ namespace ServerlessMicroservices.FunctionApp.Trips
         /*** TEST SUPPORT ***/
         [FunctionName("StoreTripTestParameters")]
         public static async Task<IActionResult> StoreTripTestParameters([HttpTrigger(AuthorizationLevel.Anonymous, "post", Route = "triptestparameters")] HttpRequest req,
-            [Blob("trips/testparams.json", FileAccess.Write, Connection = "AzureWebJobsStorage")] Stream outBlob,
+            [Blob("trips/testparams.json", FileAccess.Write, Connection = "TripStorage")] Stream outBlob,
             ILogger log)
         {
             log.LogInformation("StoreTripTestParameters triggered....");
@@ -303,7 +303,7 @@ namespace ServerlessMicroservices.FunctionApp.Trips
 
         [FunctionName("RetrieveTripTestParameters")]
         public static IActionResult RetrieveTripTestParameters([HttpTrigger(AuthorizationLevel.Anonymous, "get", Route = "triptestparameters")] HttpRequest req,
-            [Blob("trips/testparams.json", FileAccess.Read, Connection = "AzureWebJobsStorage")] Stream inBlob,
+            [Blob("trips/testparams.json", FileAccess.Read, Connection = "TripStorage")] Stream inBlob,
             ILogger log)
         {
             log.LogInformation("RetrieveTripTestParameters triggered....");
